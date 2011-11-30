@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin_manifest>
+	<field key="name" value="Elgg Social Login" />
+	<field key="author" value="Miled" />
+	<field key="version" value="1.0.2" />
+	<field key="description" value="Allow your visitors to register and login with social networks and identities providers such as Facebook, Twitter, Foursquare and Google." />
+	<field key="category" value="service" /> 
+	<field key="website" value="http://hybridauth.sourceforge.net/" />
+	<field key="copyright" value="(C) HybridAuth open source project 2011" />
+	<field key="licence" value="GNU Public License version 2" /> 
+	<field key="elgg_version" value="2010030101" />
+</plugin_manifest>
