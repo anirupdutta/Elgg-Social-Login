@@ -41,6 +41,16 @@
 			echo "<b style='color:red;'>FAIL!</b> PHP >= 5.2.0 not installed.";
 		}
 
+		// OAuth API 1.8 is not compatible with this plugin
+		echo "<h4>2.4 - OAuth API 1.8 plugin</h4>";
+
+		if( ! class_exists('OAuthException') ) {
+			echo "<b style='color:green;'>OK!</b> OAuth API plugin is disabled.";
+		}
+		else{ 
+			echo "<b style='color:red;'>FAIL!</b> OAuth API plugin enabled.<br /><b>OAuth API plugin</b> is not compatible with this plugin, and many providers like twitter and myspace wont work! Please disabled it!";
+		}
+
 		// PHP Curl extension [http://www.php.net/manual/en/intro.curl.php] 
 		echo "<h4>2.2 - CURL Extension</h4>";
 
@@ -58,7 +68,7 @@
 			echo "<b style='color:green;'>OK!</b> PHP JSON extension [http://php.net/manual/en/book.json.php] installed.";
 		}
 		else{ 
-			echo "<b style='color:red;'>FAIL!</b> PHP JSON extension [http://php.net/manual/en/book.json.php] not installed.";
+			echo "<b style='color:red;'>FAIL!</b> PHP JSON extension [http://php.net/manual/en/book.json.php] is disabled.";
 		} 
 
 		// OAuth PECL extension is not compatible with this library

@@ -3,8 +3,8 @@
 
 	require "{$CONFIG->pluginspath}elgg_social_login/settings.php";
 	
-	$plugin_base_url     = "{$CONFIG->url}/mod/elgg_social_login/";
-	$hybridauth_base_url = "{$CONFIG->url}/mod/elgg_social_login/vendors/hybridauth/";
+	$plugin_base_url     = "{$CONFIG->url}mod/elgg_social_login/";
+	$hybridauth_base_url = "{$CONFIG->url}mod/elgg_social_login/vendors/hybridauth/";
 	$assets_base_url     = "{$vars['url']}mod/elgg_social_login/graphics/";
 
 	echo '<div id="elgg_social_login_site_settings">';
@@ -36,23 +36,19 @@
 	<h2 style="border-bottom: 1px solid #CCCCCC;margin:10px;">3. help and support</h2>
 	<p>
 		&nbsp;&nbsp;&nbsp; 
-		To get <strong>help and support</strong>, join us on the <img src="<?php echo $assets_base_url; ?>external-link-icon.jpg" /> <a href="https://groups.google.com/forum/#!forum/hybridauth-plugins"><b>discussion group</b></a> or email me at <b>hybridauth@gmail.com</b>
-		
+		If you run into any issue, the best way to reach me is by contacting me at <b>hybridauth@gmail.com</b> or on 
+		<br />
+		&nbsp;&nbsp;&nbsp; 
+		<img src="<?php echo $assets_base_url; ?>external-link-icon.jpg" /> <b><a href="https://groups.google.com/forum/#!forum/hybridauth-plugins">https://groups.google.com/forum/#!forum/hybridauth-plugins</a></b>
+
 		<br />
 		<br />
 		&nbsp;&nbsp;&nbsp;
-		Note: This is free software. Polite and descriptive questions will be given priority.
+		<b>Note</b>: This is free software. Polite and descriptive questions will be given priority.
 	</p>
 
 	<br />
 	<h2 style="border-bottom: 1px solid #CCCCCC;margin:10px;">4. General Settings</h2>
-	<p>
-		&nbsp;&nbsp;&nbsp; 
-		This plugin is still in alpha stage. 
-		<br />
-		<br />
-		&nbsp;&nbsp;&nbsp; 
-		We recommend to set <b>test mode</b> to <b style="color:green">YES</b> until you are sure you want to go live. 
 
 		<?php
 			$test_mode = 1; 
@@ -61,13 +57,63 @@
 			}
 		?>
 		<div style="padding: 5px;margin: 5px;background: none repeat scroll 0 0 #F5F5F5;border-radius:3px;">
-			<b>Plugin Test Mode Active?</b>
-			<select style="height:22px;margin: 3px;" name="params[ha_settings_test_mode]">
-				<option value="1" <?php if( $test_mode == 1 ) echo "selected"; ?> >YES</option>
-				<option value="0" <?php if( $test_mode == 0 ) echo "selected"; ?> >NO</option>
-			</select> 
+			<table>
+			<tr>
+			<td>
+				<b>Plugin Test Mode Active?</b>
+				<select style="height:22px;margin: 3px;" name="params[ha_settings_test_mode]">
+					<option value="1" <?php if( $test_mode == 1 ) echo "selected"; ?> >YES</option>
+					<option value="0" <?php if( $test_mode == 0 ) echo "selected"; ?> >NO</option>
+				</select> 
+			</td>
+			<td> 
+				&nbsp;&nbsp; We recommend to set <b>test mode</b> to <b style="color:green">YES</b> until you are sure you want to go live. 
+			</td>
+			</tr>
+			</table>
+		</div> 
+
+		<div style="padding: 5px;margin: 5px;background: none repeat scroll 0 0 #F5F5F5;border-radius:3px;">
+			<table>
+			<tr>
+			<td>
+				<b>Display a link-back attribution?</b>
+				<select style="height:22px;margin: 3px;" name="params[ha_settings_attribution_ok]">
+					<option value="1" <?php if(   $vars['entity']->ha_settings_attribution_ok ) echo "selected"; ?> >YES</option>
+					<option value="0" <?php if( ! $vars['entity']->ha_settings_attribution_ok ) echo "selected"; ?> >NO</option>
+				</select> 
+			</td>
+			<td> 
+				&nbsp;&nbsp; <b>You Absolutely Don't have to</b>! but you know this is always appreciated.
+			</td>
+			</tr>
+			</table>
+		</div> 
+
+		<div style="padding: 5px;margin: 5px;background: none repeat scroll 0 0 #F5F5F5;border-radius:3px;">
+			<table>
+			<tr>
+			<td>
+				<b>Do you have privacy web page?</b>
+				
+			</td>
+			<td> 
+				<input type="text" style="width: 350px;margin: 3px;" 
+					value="<?php echo $vars['entity']->ha_settings_privacy_page; ?>"
+					name="params[ha_settings_privacy_page]" 
+				> leave it black if you dont.
+			</td>
+			</tr>
+			</table>
 		</div>
-	</p>
+
+		<br />
+		<p>
+			&nbsp;&nbsp; When you setup Link attribution to <b style="color:green">YES</b> and a privacy web page this what you login page will look like :
+		</p>
+		<div style="padding-top:10px;text-align:center;">
+			<img src="<?php echo $assets_base_url ; ?>preview.png" />
+		</div>
 
 	<br />
 	<h2 style="border-bottom: 1px solid #CCCCCC;margin:10px;">5. Providers setup</h2>

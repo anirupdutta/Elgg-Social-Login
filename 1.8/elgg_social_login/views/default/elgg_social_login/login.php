@@ -1,5 +1,6 @@
 <?php
 	global $CONFIG;
+	global $HA_SOCIAL_LOGIN_PROVIDERS_CONFIG;
 
 	require_once "{$CONFIG->pluginspath}elgg_social_login/settings.php"; 
 
@@ -26,6 +27,25 @@
 	?>
 		<input id="ha_popup_base_url" type="hidden" value="<?php echo "{$vars['url']}mod/elgg_social_login/"; ?>authenticate.php?" />
 	<?php
+
+	// link attribution && privacy page 
+	?>
+	<p style="border-top:1px dotted #999;font-size: 10px;">
+		<?
+			if( get_plugin_setting( 'ha_settings_attribution_ok', 'elgg_social_login' ) ){
+		?> 
+			Powred by <a href="http://hybridauth.sourceforge.net" target="_blank">HybridAuth</a>
+		<?php
+			}
+
+			if( get_plugin_setting( 'ha_settings_privacy_page', 'elgg_social_login' ) ){
+		?> 
+			| <a href="<?php echo get_plugin_setting( 'ha_settings_privacy_page', 'elgg_social_login' ) ?>" target="_blank">Privacy</a>
+		<?php
+			}
+		?> 
+	</p>
+	<?php 
 
 	// eh um not a designer 
 	echo "</div>";

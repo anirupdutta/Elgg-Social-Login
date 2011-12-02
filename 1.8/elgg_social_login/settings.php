@@ -21,13 +21,13 @@
 			"callback"          => TRUE, 
 			"new_app_link"      => "https://dev.twitter.com/apps", 
 		)
-		// ,
-		// ARRAY( 
-			// "provider_id"       => "Live",
-			// "provider_name"     => "Windows Live", 
-			// "require_client_id" => TRUE,
-			// "new_app_link"      => "https://manage.dev.live.com/ApplicationOverview.aspx", 
-		// )
+		,
+		ARRAY( 
+			"provider_id"       => "Live",
+			"provider_name"     => "Windows Live", 
+			"require_client_id" => TRUE,
+			"new_app_link"      => "https://manage.dev.live.com/ApplicationOverview.aspx", 
+		)
 		,
 		ARRAY( 
 			"provider_id"       => "MySpace",
@@ -60,5 +60,5 @@
 			"provider_id"       => "AOL",
 			"provider_name"     => "AOL", 
 			"new_app_link"      => NULL, 
-		)
+		) 
 	);

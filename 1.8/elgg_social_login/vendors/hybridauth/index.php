@@ -11,15 +11,12 @@
 
 require_once (dirname(dirname(dirname(dirname(dirname(__FILE__))))) . "/engine/start.php");
 
-// again, you can fuck off with your handlers
-// restore_error_handler();
-// restore_exception_handler();
-
 function exception_handler($e) { 
 	throw new Exception( $e->getMessage(), $e->getCode() );
 }
 
 set_exception_handler( 'exception_handler ');
+
 
 require_once( "Hybrid/Auth.php" );
 
@@ -134,7 +131,8 @@ if( isset( $_REQUEST["hauth_start"] ) || isset( $_REQUEST["hauth_done"] ) )
 		// Fix a strange behavior when some provider call back ha endpoint
 		// with /index.php?hauth.done={provider}?oauth_token={oauth_token} 
 		// By RP Lin
-		if ( strrpos( $_REQUEST["hauth_done"], 'oauth_token' ) ) {
+		if ( strrpos( $_REQUEST["hauth_done"], 'oauth_token' ) )
+		{
 			$arr = explode( 'oauth_token', $_REQUEST["hauth_done"] );
 			$_REQUEST["hauth_done"]  = substr( $arr[0], 0, -1 ); // remove ?
 			$_REQUEST["oauth_token"] = substr( $arr[1], 1 );     // remove =
@@ -189,4 +187,3 @@ else{
 
 	die();
 }
- 

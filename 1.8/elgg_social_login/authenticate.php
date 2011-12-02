@@ -5,14 +5,14 @@
 
 	require_once (dirname(dirname(dirname(__FILE__))) . "/engine/start.php");
 
-	// well, you can fuck off with your handlers
+	// well, dont need theses
 	restore_error_handler();
 	restore_exception_handler();
 
 	global $CONFIG; 
 	
-	$assets_base_url  = "{$CONFIG->url}/mod/elgg_social_login/";
-	$assets_base_path = "{$CONFIG->pluginspath}/elgg_social_login/";
+	$assets_base_url  = "{$CONFIG->url}mod/elgg_social_login/";
+	$assets_base_path = "{$CONFIG->pluginspath}elgg_social_login/";
 
 	// let display a loading message. should be better than a white screen
 	if( isset( $_GET["provider"] ) && ! isset( $_GET["redirect_to_provider"] )){
@@ -156,7 +156,7 @@
 				// 5. website
 				create_metadata( $user->guid, "website", html_entity_decode( $user_profile->profileURL, ENT_COMPAT, 'UTF-8'), "text", $user->guid, 1 );
 			# }}} update user profile
-			
+
 			# {{{ user image
 				if( $user_profile->photoURL ){ 
 					$sizes = array(
@@ -252,7 +252,7 @@ HR {
     <td align="center"> 
 		<div style="padding: 5px;margin: 5px;background: none repeat scroll 0 0 #F5F5F5;border-radius:3px;">
 			<br /> 
-			&nbsp;<b>This plugin is still in alpha</b><br /><br /><b style="color:#cc0000;">But you can make it better by sending this error to the developer!</b>
+			&nbsp;<b>This plugin is still in alpha</b><br /><br /><b style="color:#cc0000;">But you can make it better by sending the generated error report to the developer!</b>
 			<br />
 			<br />
 
